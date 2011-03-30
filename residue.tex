@@ -40,12 +40,14 @@ $$\oint_{C} \frac{f(z) dz}{z-z_0}
 = i \int_0^{2\pi} f(z_0 + \cancelto{0}{\epsilon e^{i\theta}}) d\theta \rightarrow 2\pi i f(z_0) $$
 \end{proof}
 Note that for this to hold, $f$ has to be analytic, but not at $z_0$
-\section{Taylor Series}
+\section{Laurent Series}
 Now we can find something interesting if we try to develop Taylor Series using this fact, so let's do it! Let $t$ on some arbitary $C$. We're looking for an expansion in powers of $(z-a)$, with $a$ inside $C$. 
 $$ f(z) = \frac1{2\pi i}\oint_{\tilde C} \frac{f(t) dt}{t-z} $$
-$$\frac1{t-z} = \frac1{(t-a)-(z-a)} = \frac1{t-a}\frac1{1-{\frac{z-a}{t-a}}} = \frac1{t-a}\Sum_{n=0}^\infty\left(\frac{z-a}{t-a}\right)^n$$
-$$ f(z) = \frac1{2\pi i}\oint_{\tilde C} \frac{f(t) dt}{t-a} \Sum_{n=0}^\infty\left(\frac{z-a}{t-a}\right)^n  = \frac1{2\pi i} \Sum_{n=0}^\infty{(z-a)}^n \oint_{\tilde C} \frac{f(t) dt}{(t-a)^{n+1}} $$
-Now, if we write $f(z) = \Sum_{n=0}^\infty A_n (z-a)^n$, we arrive at two nice results:
-
+$$\frac1{t-z} = \frac1{(t-a)-(z-a)} = \frac1{t-a}\frac1{1-{\frac{z-a}{t-a}}} = \frac1{t-a}\sum_{n=0}^\infty\left(\frac{z-a}{t-a}\right)^n $$
+$$ f(z) = \frac1{2\pi i}\oint_{\tilde C} \frac{f(t) dt}{t-a} \sum_{n=0}^\infty\left(\frac{z-a}{t-a}\right)^n  = \frac1{2\pi i} \sum_{n=0}^\infty{(z-a)}^n \oint_{\tilde C} \frac{f(t) dt}{(t-a)^{n+1}} $$
+Now, if we write $f(z) = \sum_{n=-\infinty}^\infty A_n (z-a)^n$, we arrive at the nice results:
+ $$f^{(n)}(a) = n! A_n = \frac1{n!2\pi i} \oint_{C}\frac{f(t) dt}{(t-a)^{n+1}}$$
+We've proved this for positive n, but not for negative n. That proof is left as an excercise.
+\begin{exc} Prove that this holds for negative n as well.
 
 \end{document}
