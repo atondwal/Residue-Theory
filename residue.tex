@@ -2,12 +2,13 @@
 \usepackage{amsfonts, amsmath, amssymb, amsthm,fullpage,mdwlist,graphicx,cancel}
 \everymath{\displaystyle}
 \newtheorem{thm}{Theorem}[section]
+\newtheorem{exc}{Excercise}[section]
 \title{$\mathbb{C}$alculus of Residues}
 \author{Anish Tondwalkar}
 \date{April Fools' 2011}
 \begin{document}
 \maketitle
-Residue theory is a powerful tool to kill some integrals. Ideally, I'd prove everything I use, but we don't have the time for that on a Friday lecture, so I'll just do a few as examples. 
+Residue theory is a powerful tool to kill some integrals. Ideally, I'd prove everything I use, but we don't have the time for that on a Friday lecture, so I'll just do a few as examples.  To properly develop the theory we need some other stuff first....
 \section{Complex Integrals}
 Since in the complex plane, we're now on a plane, not a line, there is more than one way to get from one point to another. Therefore, almost all the integrals you see during this lecture are going to be contour integrals. We define an integral along some path in $\mathbb{C}$ the same way we do in multivar for $\mathbb{R}^2$. One really trivial thing you should realize is that:
 \begin{thm}[Cauchy's Integral Theorem]
@@ -18,14 +19,33 @@ if $f$ is analytic (a.k.a.\! conservative) inside $C$ and continuous on $C$.
 \end{flushright}
 \section{Cauchy's Integral Formula}
 \begin{thm}[Cauchy's Integral Formula]
-$\oint_C \frac{f(z)}{z-z_0} dz = 2 \pi i f(z_0)$ 
+$\oint_C \frac{f(z)}{z-z_0} dz = 2\pi i f(z_0)$ 
 \end{thm}
 \begin{flushright}
 if $f$ is analytic inside $C$.
 \end{flushright}
-\includegraphics[scale=.4]{ctwiddle}
 \begin{proof}
-$C = C + \cancel{C_{+} + C_{-}}$
 
+Start with this contour, split as so:
+$$\tilde C = C - C_\epsilon +\cancel{C_{+} + C_{-}}$$
+\center{
+\includegraphics[scale=.4]{ctwiddle}
+}
+$$\oint_{\tilde C} \frac{f(z) dz}{z-z_0} 
+= 0 
+=\oint_{ C} \frac{f(z) dz}{z-z_0} -\oint_{C_\epsilon} \frac{f(z) dz}{z-z_0}$$
+$$\oint_{C} \frac{f(z) dz}{z-z_0} 
+= \oint_{C_\epsilon} \frac{f(z) dz}{z-z_0}
+= \oint_{C_\epsilon} \frac{f(z_0 + \epsilon e^{i\theta}) }{\epsilon e^{i\theta}} \epsilon i e^{i\theta} d\theta 
+= i \int_0^{2\pi} f(z_0 + \cancelto{0}{\epsilon e^{i\theta}}) d\theta \rightarrow 2\pi i f(z_0) $$
 \end{proof}
+Note that for this to hold, $f$ has to be analytic, but not at $z_0$
+\section{Taylor Series}
+Now we can find something interesting if we try to develop Taylor Series using this fact, so let's do it! Let $t$ on some arbitary $C$. We're looking for an expansion in powers of $(z-a)$, with $a$ inside $C$. 
+$$ f(z) = \frac1{2\pi i}\oint_{\tilde C} \frac{f(t) dt}{t-z} $$
+$$\frac1{t-z} = \frac1{(t-a)-(z-a)} = \frac1{t-a}\frac1{1-{\frac{z-a}{t-a}}} = \frac1{t-a}\Sum_{n=0}^\infty\left(\frac{z-a}{t-a}\right)^n$$
+$$ f(z) = \frac1{2\pi i}\oint_{\tilde C} \frac{f(t) dt}{t-a} \Sum_{n=0}^\infty\left(\frac{z-a}{t-a}\right)^n  = \frac1{2\pi i} \Sum_{n=0}^\infty{(z-a)}^n \oint_{\tilde C} \frac{f(t) dt}{(t-a)^{n+1}} $$
+Now, if we write $f(z) = \Sum_{n=0}^\infty A_n (z-a)^n$, we arrive at two nice results:
+
+
 \end{document}
