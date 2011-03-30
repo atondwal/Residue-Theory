@@ -1,5 +1,5 @@
 \documentclass[11pt,notitlepage]{article}
-\usepackage{amsfonts, amsmath, amssymb, amsthm,fullpage,mdwlist}
+\usepackage{amsfonts, amsmath, amssymb, amsthm,fullpage,mdwlist,graphicx,cancel}
 \everymath{\displaystyle}
 \newtheorem{thm}{Theorem}[section]
 \title{$\mathbb{C}$alculus of Residues}
@@ -23,9 +23,9 @@ $\oint_C \frac{f(z)}{z-z_0} dz = 2 \pi i f(z_0)$
 \begin{flushright}
 if $f$ is analytic inside $C$.
 \end{flushright}
+\includegraphics[scale=.4]{ctwiddle}
 \begin{proof}
-\includegraphics{ctwiddle}
-$\twiddle C = C + \cancel{C_{+} + C_{-}}$
+$C = C + \cancel{C_{+} + C_{-}}$
 
 \end{proof}
 \end{document}
