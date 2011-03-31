@@ -1,6 +1,7 @@
 \documentclass[11pt,notitlepage]{article}
 \usepackage{amsfonts, amsmath, amssymb, amsthm,fullpage,mdwlist,graphicx,cancel}
 \everymath{\displaystyle}
+\DeclareMathOperator*{\res}{Res} 
 \newtheorem{thm}{Theorem}[section]
 \newtheorem{exc}{Excercise}[section]
 \title{$\mathbb{C}$alculus of Residues}
@@ -42,12 +43,25 @@ $$\oint_{C} \frac{f(z) dz}{z-z_0}
 Note that for this to hold, $f$ has to be analytic, but not at $z_0$
 \section{Laurent Series}
 Now we can find something interesting if we try to develop Taylor Series using this fact, so let's do it! Let $t$ on some arbitary $C$. We're looking for an expansion in powers of $(z-a)$, with $a$ inside $C$. 
-$$ f(z) = \frac1{2\pi i}\oint_{\tilde C} \frac{f(t) dt}{t-z} $$
+$$ f(z) = \frac1{2\pi i}\oint_{C} \frac{f(t) dt}{t-z} $$
 $$\frac1{t-z} = \frac1{(t-a)-(z-a)} = \frac1{t-a}\frac1{1-{\frac{z-a}{t-a}}} = \frac1{t-a}\sum_{n=0}^\infty\left(\frac{z-a}{t-a}\right)^n $$
-$$ f(z) = \frac1{2\pi i}\oint_{\tilde C} \frac{f(t) dt}{t-a} \sum_{n=0}^\infty\left(\frac{z-a}{t-a}\right)^n  = \frac1{2\pi i} \sum_{n=0}^\infty{(z-a)}^n \oint_{\tilde C} \frac{f(t) dt}{(t-a)^{n+1}} $$
+$$ f(z) = \frac1{2\pi i}\oint_{C} \frac{f(t) dt}{t-a} \sum_{n=0}^\infty\left(\frac{z-a}{t-a}\right)^n  = \frac1{2\pi i} \sum_{n=0}^\infty{(z-a)}^n \oint_{C} \frac{f(t) dt}{(t-a)^{n+1}} $$
 Now, if we write $f(z) = \sum_{n=-\infinty}^\infty A_n (z-a)^n$, we arrive at the nice results:
- $$f^{(n)}(a) = n! A_n = \frac1{n!2\pi i} \oint_{C}\frac{f(t) dt}{(t-a)^{n+1}}$$
+ $$f^{(n)}(a) = n! A_n$
+ $$A_n = \frac1{n!2\pi i} \oint_{C}\frac{f(t) dt}{(t-a)^{n+1}}$$
 We've proved this for positive n, but not for negative n. That proof is left as an excercise.
-\begin{exc} Prove that this holds for negative n as well.
-
+Since we also have negative powers of n, this expansion also works for functions that are not analytic, specificially, functions whose discontinuity is classified as a pole. The order of this pole is the the lowest n for which $A_n \not=0$ in the expansion. A pole of order $1$ is also called a simple pole. Futhermore the residue is defined, $$\res_{z=a} f(z) = A_{-1}$$
+\section{Residues}
+Here are three theorems that are useful and easy to prove:
+\begin{thm}[Residues for simple poles]
+If $f(z)=\frac{g(z)}{h(z)}$, $h(z_0)=0$, $h'(z_0)\not=0$, then $$\res_{z=z_0} f(z) = \frac{g(z_0)}{h'(z_0)}$$
+\end{thm}
+\begin{thm}[Residues for poles of higher order]
+If $z_0$ is an $m^{th}$ order pole, 
+$$\res_{z=z_0} f(z) = \lim_{z\rightarrow z_0} \frac1{(m-1)!} D_z^{m-1} \left[(z-z_0)^(m) f(z)\right]$$
+\end{thm}
+\begin{thm}[Cauchy's Residue Theorem]
+If $f$ has isolated poles at $z_k$ inside $C$, and in analytic elsewhere inside $C$,
+$$\oint_C f(z) dz = 2\pi i\sum_k \res_{z=z_k} f(z)$$
+\end{thm}
 \end{document}
