@@ -11,7 +11,7 @@
 \everymath{\displaystyle}
 \DeclareMathOperator*{\res}{Res} 
 \newtheorem{thm}{Theorem}[section]
-\newtheorem{exc}{Excercise}[section]
+\newtheorem{exc}{Exercise}[section]
 \title{$\mathbb{C}$alculus of Residues}
 \author{Anish Tondwalkar}
 \date{April Fools' 2011}
@@ -23,7 +23,7 @@
 \par
 \small{April Fools' 2011}
 \end{center}
-Residue theory is a powerful tool to kill some integrals.  I have a proof and a little analysis in here, but I left most of them as excercises for you to do on your own.  To properly develop the theory we need some other stuff first \ldots
+Residue theory is a powerful tool to kill some integrals.  I have a proof and a little analysis in here, but I left most of them as exercises for you to do on your own.  To properly develop the theory we need some other stuff first \ldots
 \section{Complex Integrals}
 Since in the complex plane, we're now on a plane, not a line, there's more than one way to get from one point to another. Therefore, most the integrals you see during this lecture are contour integrals. We define an integral along some path in $\mathbb{C}$ the same way we do in multivar for $\mathbb{R}^2$. One really trivial thing you should realize is that:
 \begin{thm}[Cauchy's Integral Theorem]
@@ -57,17 +57,17 @@ $$\oint_{C} \frac{f(z) dz}{z-z_0}
 = \oint_{C_\epsilon} \frac{f(z_0 + \epsilon e^{i\theta}) }{\epsilon e^{i\theta}} \epsilon i e^{i\theta} d\theta 
 = i \int_0^{2\pi} f(z_0 + \cancelto{0}{\epsilon e^{i\theta}}) d\theta \rightarrow 2\pi i f(z_0) $$
 \end{proof}
-Note that for this to hold, $f$ has to be analytic, but not nessecarily at $z_0$
+Note that for this to hold, $f$ has to be analytic, but not necessarily at $z_0$
 \section{Laurent Series}
-Now we can find something interesting if we try to develop Taylor Series using this fact, so let's do it! Let $t$ on some arbitary $C$. We're looking for an expansion in powers of $(z-a)$, with $a$ inside $C$. 
+Now we can find something interesting if we try to develop Taylor Series using this fact, so let's do it! Let $t$ on some arbitrary $C$. We're looking for an expansion in powers of $(z-a)$, with $a$ inside $C$. 
 $$ f(z) = \frac1{2\pi i}\oint_{C} \frac{f(t) dt}{t-z} $$
 $$\frac1{t-z} = \frac1{(t-a)-(z-a)} = \frac1{t-a}\frac1{1-{\frac{z-a}{t-a}}} = \frac1{t-a}\sum_{n=0}^\infty\left(\frac{z-a}{t-a}\right)^n $$
 $$ f(z) = \frac1{2\pi i}\oint_{C} \frac{f(t) dt}{t-a} \sum_{n=0}^\infty\left(\frac{z-a}{t-a}\right)^n  = \frac1{2\pi i} \sum_{n=0}^\infty{(z-a)}^n \oint_{C} \frac{f(t) dt}{(t-a)^{n+1}} $$
 Now, if we write $f(z) = \sum_{n=-\infty}^\infty A_n (z-a)^n$, we arrive at the nice results:
  $$f^{(n)}(a) = n! A_n$$
  $$A_n = \frac1{n!2\pi i} \oint_{C}\frac{f(t) dt}{(t-a)^{n+1}}$$
-We've proved this for positive n, but not for negative n. That proof is left as an excercise.
-Since we also have negative powers of n, this expansion also works for functions that are not analytic, specificially, functions whose discontinuity is classified as a pole. The order of this pole is the the lowest n for which $A_n \not=0$ in the expansion. A pole of order $1$ is also called a simple pole. Futhermore the residue is defined, $$\res_{z=a} f(z) = A_{-1}$$
+We've proved this for positive n, but not for negative n. That proof is left as an exercise.
+Since we also have negative powers of n, this expansion also works for functions that are not analytic, specifically, functions whose discontinuity is classified as a pole. The order of this pole is the lowest n for which $A_n \not=0$ in the expansion. A pole of order $1$ is also called a simple pole. Furthermore, the residue is defined, $$\res_{z=a} f(z) = A_{-1}$$
 \section{Residues}
 Here are three theorems that are useful and easy to prove:
 \begin{thm}[Residues for simple poles]
@@ -83,5 +83,10 @@ $$\oint_C f(z) dz = 2\pi i\sum_{i=0}^k \res_{z=z_i} f(z)$$
 \end{thm}
 \begin{exc} Prove these
 \end{exc}
-Now that we can do integrals on contours in the complex plane, we can use them to evaulate real definite integrals. I'll do a problem on the board, and then lecture problems.
+Now that we can do integrals on contours in the complex plane, we can use them to evaluate real definite integrals. Finally, some more applied stuff.
+\section{Evaluation of Real Definite Integrals}
+Let's use this to find $$\int_-infty
+
+
+I'll do a problem on the board, and then lecture problems.
 \end{document}
