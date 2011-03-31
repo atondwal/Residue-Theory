@@ -20,16 +20,21 @@
 \Large{$\mathbb{C}$alculus of Residues}
 \par
 \large{Anish Tondwalkar}
+\par
+\small{April Fools' 2011}
 \end{center}
-Residue theory is a powerful tool to kill some integrals. Ideally, I'd prove everything I use, but we don't have the time for that on a Friday lecture, so I'll just do the less trivial ones as examples.  To properly develop the theory we need some other stuff first....
+Residue theory is a powerful tool to kill some integrals.  I have a proof and a little analysis in here, but I left most of them as excercises for you to do on your own.  To properly develop the theory we need some other stuff first \ldots
 \section{Complex Integrals}
-Since in the complex plane, we're now on a plane, not a line, there is more than one way to get from one point to another. Therefore, almost all the integrals you see during this lecture are going to be contour integrals. We define an integral along some path in $\mathbb{C}$ the same way we do in multivar for $\mathbb{R}^2$. One really trivial thing you should realize is that:
+Since in the complex plane, we're now on a plane, not a line, there's more than one way to get from one point to another. Therefore, most the integrals you see during this lecture are contour integrals. We define an integral along some path in $\mathbb{C}$ the same way we do in multivar for $\mathbb{R}^2$. One really trivial thing you should realize is that:
 \begin{thm}[Cauchy's Integral Theorem]
 $\oint_C f(z) dz = 0$ 
 \end{thm}
 \begin{flushright}
 if $f$ is analytic (a.k.a.\! conservative) inside $C$ and continuous on $C$.
 \end{flushright}
+\begin{exc}
+Prove this. Hint: Plug in real and imaginary parts into Laplace's Equation ($\nabla^2f=0$), in order to obtain the Cauchy-Riemann equations. 
+\end{exc}
 \section{Cauchy's Integral Formula}
 \begin{thm}[Cauchy's Integral Formula]
 $\oint_C \frac{f(z)}{z-z_0} dz = 2\pi i f(z_0)$ 
@@ -52,7 +57,7 @@ $$\oint_{C} \frac{f(z) dz}{z-z_0}
 = \oint_{C_\epsilon} \frac{f(z_0 + \epsilon e^{i\theta}) }{\epsilon e^{i\theta}} \epsilon i e^{i\theta} d\theta 
 = i \int_0^{2\pi} f(z_0 + \cancelto{0}{\epsilon e^{i\theta}}) d\theta \rightarrow 2\pi i f(z_0) $$
 \end{proof}
-Note that for this to hold, $f$ has to be analytic, but not at $z_0$
+Note that for this to hold, $f$ has to be analytic, but not nessecarily at $z_0$
 \section{Laurent Series}
 Now we can find something interesting if we try to develop Taylor Series using this fact, so let's do it! Let $t$ on some arbitary $C$. We're looking for an expansion in powers of $(z-a)$, with $a$ inside $C$. 
 $$ f(z) = \frac1{2\pi i}\oint_{C} \frac{f(t) dt}{t-z} $$
@@ -73,8 +78,8 @@ If $z_0$ is an $m^{th}$ order pole,
 $$\res_{z=z_0} f(z) = \lim_{z\rightarrow z_0} \frac1{(m-1)!} D_z^{m-1} \left[(z-z_0)^m f(z)\right]$$
 \end{thm}
 \begin{thm}[Cauchy's Residue Theorem]
-If $f$ has isolated poles at $z_k$ inside $C$, and in analytic elsewhere inside $C$,
-$$\oint_C f(z) dz = 2\pi i\sum_k \res_{z=z_k} f(z)$$
+If $f$ has isolated poles at $z_0,z_1,z_2, \ldots z_k$ inside $C$, and in analytic elsewhere inside $C$,
+$$\oint_C f(z) dz = 2\pi i\sum_{i=0}^k \res_{z=z_i} f(z)$$
 \end{thm}
 \begin{exc} Prove these
 \end{exc}
