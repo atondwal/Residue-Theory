@@ -85,8 +85,9 @@ $$\oint_C f(z) dz = 2\pi i\sum_{i=0}^k \res_{z=z_i} f(z)$$
 \end{exc}
 Now that we can do integrals on contours in the complex plane, we can use them to evaluate real definite integrals. Finally, some more applied stuff.
 \section{Evaluation of Real Definite Integrals}
-Let's use this to find $$\int_-infty
+Let's use this to find $$\int_{-\infty}^{\infty} \frac{\cos(x)dx}{z^2+1}$$
+First note: $$\int_{-\infty}^{\infty} \frac{\cos(x)dx}{z^2+1} = \Re\left[\int_{-\infty}^{\infty} \frac{e^{iz}dx}{(z-i)(z+i)}\right]$$
+So we use this contour: $$C = \cancelto0{C_\infty} + C_0$$
 
 
-I'll do a problem on the board, and then lecture problems.
 \end{document}
