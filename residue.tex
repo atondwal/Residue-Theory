@@ -30,17 +30,17 @@ Since in the complex plane, we're now on a plane, not a line, there's more than 
 $\oint_C f(z) dz = 0$ 
 \end{thm}
 \begin{flushright}
-if $f$ is analytic (a.k.a.\! conservative) inside $C$ and continuous on $C$.
+if $f$ is conservative inside $C$ and continuous on $C$.
 \end{flushright}
 \begin{exc}
-Prove this. Hint: Plug in real and imaginary parts into Laplace's Equation ($\nabla^2f=0$), in order to obtain the Cauchy-Riemann equations. 
+Prove this using the Cauchy-Riemann equations.
 \end{exc}
 \section{Cauchy's Integral Formula}
 \begin{thm}[Cauchy's Integral Formula]
 $\oint_C \frac{f(z)}{z-z_0} dz = 2\pi i f(z_0)$ 
 \end{thm}
 \begin{flushright}
-if $f$ is analytic inside $C$.
+if $f$ is conservative inside $C$.
 \end{flushright}
 \begin{proof}
 
@@ -88,13 +88,13 @@ Now that we can do integrals on contours in the complex plane, we can use them t
 Let's use this to find $$\int_{-\infty}^{\infty} \frac{\cos(x)dx}{z^2+1}$$
 First note: $$\int_{-\infty}^{\infty} \frac{\cos(x)dx}{x^2+1} = \Re\left[\int_{-\infty}^{\infty} \frac{e^{ix}dx}{(x-i)(x+i)}\right]$$
 So we use this contour: $$C = \cancelto0{C_\infty} + C_0$$, where $C_0$ is along the real axis and $C_\infty$ is the infinite upper half-circle.
-$$ \int_{-\infty}^{\infty} \frac{e^{ix}dx}{(x-i)(x+i)} = \oint_{C_0} \frac{e^{iz}dz}{(z-i)(z+i)} = \oint_C \frac{e^{iz}dz}{(z-i)(z+i)} = 2\pi i\res_{z=i}\frac{e^{iz}}{(z-i)(z+i)} = \frac{\cancel{2i}\pi e^{i^2}}{\cancel{2i}}=\pi e^{-1}$$
+$$ \int_{-\infty}^{\infty} \frac{e^{ix}dx}{(x-i)(x+i)} = \int_{C_0} \frac{e^{iz}dz}{(z-i)(z+i)} = \oint_C \frac{e^{iz}dz}{(z-i)(z+i)} = 2\pi i\res_{z=i}\frac{e^{iz}}{(z-i)(z+i)} = \frac{\cancel{2i}\pi e^{i^2}}{\cancel{2i}}=\pi e^{-1}$$
 $$ \int_{-\infty}^{\infty} \frac{\cos(x)dx}{x^2+1} =\Re\left[\oint_C \frac{e^{iz}dz}{(z-i)(z+i)}\right] =\Re\left[\frac\pi e\right] =\frac\pi e$$
 \section{Lecture Problems}
 \begin{enumerate}
 \item $\int_{-\infty}^{\infty} \frac{\sin(x)dx}{x^2+1}$
 \item $\int_{-\infty}^{\infty} \frac{dx}{3x^2+2x+10}$
-\item $\int_{-\infty}{\infty} \frac{dx}{(x^2+1)^2}$
+\item $\int_{-\infty}^{\infty} \frac{dx}{(x^2+1)^2}$
 \item $\oint_C \frac{Log(z)}{(z^2+1)^2}$ where C is a circular, positively oriented contour around i and not around -i.
 \item $\int_{0}^{\infty} \frac{dx}{x^m+1}$
 \item $\int_0^{2\pi}\frac{d\theta}{2+3\cos{\theta}}$
