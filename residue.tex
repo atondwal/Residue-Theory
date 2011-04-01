@@ -51,10 +51,10 @@ $$\tilde C = C - C_\epsilon +\cancel{C_{+} + C_{-}}$$
 }
 $$\oint_{\tilde C} \frac{f(z) dz}{z-z_0} 
 = 0 
-=\oint_{ C} \frac{f(z) dz}{z-z_0} -\oint_{C_\epsilon} \frac{f(z) dz}{z-z_0}$$
-$$\oint_{C} \frac{f(z) dz}{z-z_0} 
-= \oint_{C_\epsilon} \frac{f(z) dz}{z-z_0}
-= \oint_{C_\epsilon} \frac{f(z_0 + \epsilon e^{i\theta}) }{\epsilon e^{i\theta}} \epsilon i e^{i\theta} d\theta 
+=\int_{C} \frac{f(z) dz}{z-z_0} -\int_{C_\epsilon} \frac{f(z) dz}{z-z_0}$$
+$$\int_{C} \frac{f(z) dz}{z-z_0} 
+= \int_{C_\epsilon} \frac{f(z) dz}{z-z_0}
+= \int_{C_\epsilon} \frac{f(z_0 + \epsilon e^{i\theta}) }{\epsilon e^{i\theta}} \epsilon i e^{i\theta} d\theta 
 = i \int_0^{2\pi} f(z_0 + \cancelto{0}{\epsilon e^{i\theta}}) d\theta \rightarrow 2\pi i f(z_0) $$
 \end{proof}
 Note that for this to hold, $f$ has to be analytic, but not necessarily at $z_0$
