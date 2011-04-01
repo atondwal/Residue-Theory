@@ -57,9 +57,9 @@ $$\int_{C} \frac{f(z) dz}{z-z_0}
 = \int_{C_\epsilon} \frac{f(z_0 + \epsilon e^{i\theta}) }{\epsilon e^{i\theta}} \epsilon i e^{i\theta} d\theta 
 = i \int_0^{2\pi} f(z_0 + \cancelto{0}{\epsilon e^{i\theta}}) d\theta \rightarrow 2\pi i f(z_0) $$
 \end{proof}
-Note that for this to hold, $f$ has to be analytic, but not necessarily at $z_0$
+Note that for this to hold, $f$ has to be consevative, but not necessarily at $z_0$
 \section{Laurent Series}
-Now we can find something interesting if we try to develop Taylor Series using this fact, so let's do it! Let $t$ on some arbitrary $C$. We're looking for an expansion in powers of $(z-a)$, with $a$ inside $C$. 
+Now we can find something interesting if we try to take series expansions using this fact, so let's do it! Let $t$ be on some arbitrary $C$. We're looking for an expansion in powers of $(z-a)$, with $a$ inside $C$. 
 $$ f(z) = \frac1{2\pi i}\oint_{C} \frac{f(t) dt}{t-z} $$
 $$\frac1{t-z} = \frac1{(t-a)-(z-a)} = \frac1{t-a}\frac1{1-{\frac{z-a}{t-a}}} = \frac1{t-a}\sum_{n=0}^\infty\left(\frac{z-a}{t-a}\right)^n $$
 $$ f(z) = \frac1{2\pi i}\oint_{C} \frac{f(t) dt}{t-a} \sum_{n=0}^\infty\left(\frac{z-a}{t-a}\right)^n  = \frac1{2\pi i} \sum_{n=0}^\infty{(z-a)}^n \oint_{C} \frac{f(t) dt}{(t-a)^{n+1}} $$
@@ -67,6 +67,10 @@ Now, if we write $f(z) = \sum_{n=-\infty}^\infty A_n (z-a)^n$, we arrive at the 
  $$f^{(n)}(a) = n! A_n$$
  $$A_n = \frac1{n!2\pi i} \oint_{C}\frac{f(t) dt}{(t-a)^{n+1}}$$
 We've proved this for positive n, but not for negative n. That proof is left as an exercise.
+\begin{exc}
+Prove that, for $n<0$,
+ $$A_n = \frac1{2\pi i} \oint_{C}\frac{f(t) dt}{(t-a)^{n+1}}$$
+\end{exc}
 Since we also have negative powers of n, this expansion also works for functions that are not analytic, specifically, functions whose discontinuity is classified as a pole. The order of this pole is the lowest n for which $A_n \not=0$ in the expansion. A pole of order $1$ is also called a simple pole. Furthermore, the residue is defined, $$\res_{z=a} f(z) = A_{-1}$$
 \section{Residues}
 Here are three theorems that are useful and easy to prove:
@@ -95,8 +99,8 @@ $$ \int_{-\infty}^{\infty} \frac{\cos(x)dx}{x^2+1} =\Re\left[\oint_C \frac{e^{iz
 \item $\int_{-\infty}^{\infty} \frac{\sin(x)dx}{x^2+1}$
 \item $\int_{-\infty}^{\infty} \frac{dx}{3x^2+2x+10}$
 \item $\int_{-\infty}^{\infty} \frac{dx}{(x^2+1)^2}$
-\item $\oint_C \frac{Log(z)}{(z^2+1)^2}$ where C is a circular, positively oriented contour around i and not around -i.
+\item $\oint_C \frac{Log(z)}{(z^2+1)^2}$ where C is an annular, positively oriented contour around i and not around -i.
 \item $\int_{0}^{\infty} \frac{dx}{x^m+1}$
-\item $\int_0^{2\pi}\frac{d\theta}{2+3\cos{\theta}}$
+\item $\int_0^{\pi/2}\frac{d\theta}{(2+3\cos{\theta})^2}$
 \end{enumerate}
 \end{document}
