@@ -91,7 +91,7 @@ Now that we can do integrals on contours in the complex plane, we can use them t
 \section{Evaluation of Real Definite Integrals}
 Let's use this to find $$\int_{-\infty}^{\infty} \frac{\cos(x)dx}{z^2+1}$$
 First note: $$\int_{-\infty}^{\infty} \frac{\cos(x)dx}{x^2+1} = \Re\left[\int_{-\infty}^{\infty} \frac{e^{ix}dx}{(x-i)(x+i)}\right]$$
-So we use this contour: $$C = \cancelto0{C_\infty} + C_0$$, where $C_0$ is along the real axis and $C_\infty$ is the infinite upper half-circle.
+So we use this contour: $$C = \cancelto0{C_\infty} + C_0$$ where $C_0$ is along the real axis and $C_\infty$ is the infinite upper half-circle.
 $$ \int_{-\infty}^{\infty} \frac{e^{ix}dx}{(x-i)(x+i)} = \int_{C_0} \frac{e^{iz}dz}{(z-i)(z+i)} = \oint_C \frac{e^{iz}dz}{(z-i)(z+i)} = 2\pi i\res_{z=i}\frac{e^{iz}}{(z-i)(z+i)} = \frac{\cancel{2i}\pi e^{i^2}}{\cancel{2i}}=\pi e^{-1}$$
 $$ \int_{-\infty}^{\infty} \frac{\cos(x)dx}{x^2+1} =\Re\left[\oint_C \frac{e^{iz}dz}{(z-i)(z+i)}\right] =\Re\left[\frac\pi e\right] =\frac\pi e$$
 \section{Lecture Problems}
