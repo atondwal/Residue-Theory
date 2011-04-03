@@ -65,7 +65,7 @@ $$\frac1{t-z} = \frac1{(t-a)-(z-a)} = \frac1{t-a}\frac1{1-{\frac{z-a}{t-a}}} = \
 $$ f(z) = \frac1{2\pi i}\oint_{C} \frac{f(t) dt}{t-a} \sum_{n=0}^\infty\left(\frac{z-a}{t-a}\right)^n  = \frac1{2\pi i} \sum_{n=0}^\infty{(z-a)}^n \oint_{C} \frac{f(t) dt}{(t-a)^{n+1}} $$
 Now, if we write $f(z) = \sum_{n=-\infty}^\infty A_n (z-a)^n$, we arrive at the nice results:
  $$f^{(n)}(a) = n! A_n$$
- $$A_n = \frac1{n!2\pi i} \oint_{C}\frac{f(t) dt}{(t-a)^{n+1}}$$
+ $$A_n = \frac1{2\pi i} \oint_{C}\frac{f(t) dt}{(t-a)^{n+1}}$$
 We've proved this for positive n, but not for negative n. That proof is left as an exercise.
 \begin{exc}
 Prove that, for $n<0$,
